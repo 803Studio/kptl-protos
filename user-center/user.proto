@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+option go_package = "./usercenter";
+
+package usercenter;
+
+service User {
+  rpc Login(LoginRequest) returns (LoginResponse) {}
+  rpc Register(RegisterRequest) returns (RegisterResponse) {}
+  rpc Check(CheckTokenRequest) returns (CheckTokenResponse) {}
+}
+
+enum LoginStatus {
+  LOGIN_OK = 0;
+  EMAIL_NOT_EXIST = 1;
+  PASSWORD_ERROR = 2;
+  LOGIN_INTERNAL_ERROR = 3;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+  bool keep = 3;
+}
+
+message LoginResponse {
+  LoginStatus status = 1;
+  string token = 2;
+}
+
+enum RegisterStatus {
+  REGISTER_OK = 0;
+  VERIFY_CODE_ERROR = 1;
+  REGISTER_INTERNAL_ERROR = 2;
+  USER_ALREADY_EXIST = 3;
+}
+
+message RegisterRequest {
+  string email = 1;
+  string password = 2;
+  string code = 3;
+}
+
+message RegisterResponse {
+  RegisterStatus status = 1;
+}
+
+enum TokenStatus {
+  TOKEN_OK = 0;
+  TOKEN_EXPIRED = 1;
+  TOKEN_CHANGED = 2;
+  TOKEN_IS_NOT_RSA = 3;
+  TOKEN_PARSE_ERROR = 4;
+}
+
+message CheckTokenRequest {
+  string token = 1;
+  string action = 2;
+}
+
+message CheckTokenResponse {
+  TokenStatus status = 1;
+}
