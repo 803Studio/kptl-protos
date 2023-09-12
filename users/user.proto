@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "./usercenter";
+option go_package = "./users";
 
 package users;
 
@@ -30,5 +30,5 @@ message LoginRequest {
 
 message LoginResponse {
   ResponseHeader header = 1;
-  string token = 2;
+  uint32 uid = 2;
 }
