@@ -83,26 +83,19 @@ enum JobMoneyType {
 
 message JobMoney {
   JobMoneyType type = 1;
-  low = 2;
-  high = 3;
+  int32 low = 2;
+  int32 high = 3;
 }
 
 message JobMessage {
-  int32 jobId = 1;                        //职位id
-  string jobName = 2;                     //职位名称
-  string jobReq = 3;                      //职位要求
-  string jobLocation = 4;                 //职位地址
-  string jobTags = 5;                    //职位标签
-  int32 jobNeed = 6;                     //招聘人数
-  JobMoney JobMoney = 7;
-  string industry = 8;                   //行业
-  int32 companyId = 9;                    //公司id(用户id)
-  string recruiterName = 10;               //招聘者
-  string recruiterPhone = 11;              //招聘者手机号
-  int32 recruiterId = 12;                 //招聘者id
-  int64 openTime = 13;                    //职位发布时间
-  int64 updateTime = 14;                  //职位刷新时间
-  string companyName = 15;
+  JobSimplifyMessage jobBaseMsg = 1;
+  string jobReq = 2;                      //职位要求
+  int32 jobNeed = 3;                     //招聘人数
+  string industry = 5;                   //行业
+  string recruiterName = 6;               //招聘者
+  string recruiterPhone = 7;              //招聘者手机号
+  int32 recruiterId = 8;                 //招聘者id
+  int64 updateTime = 9;                  //职位刷新时间
 }
 
 message JobSimplifyMessage {
