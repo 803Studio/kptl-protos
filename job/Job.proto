@@ -6,7 +6,6 @@ option go_package="./job";
 
 package job;
 
-
 message FindJobRequest {
   int32 id = 1;
   int32 role = 2;
@@ -74,37 +73,47 @@ message CommonResponse {
   ResponseHeader header = 1;
 }
 
+enum JobMoneyType {
+  F2F = 0;
+  DAY = 1;
+  MON = 2;
+  TIME = 3;
+  HOUR = 4;
+}
+
+message JobMoney {
+  JobMoneyType type = 1;
+  low = 2;
+  high = 3;
+}
+
 message JobMessage {
   int32 jobId = 1;                        //职位id
-  string industry = 2;                   //行业
-  string jobName = 3;                     //职位名称
-  string salaryType = 4;                     //薪资
-  string jobReq = 5;                      //职位要求
-  string jobLocation = 6;                 //职位地址
-  int32 companyId = 7;                    //公司id(用户id)
-  string recruiterName = 8;               //招聘者
-  string recruiterPhone = 9;              //招聘者手机号
-  int32 jobNeed = 10;                     //招聘人数
-  int32 recruiterId = 11;                 //招聘者id
-  int64 openTime = 12;                    //职位发布时间
-  string jobTags = 13;                    //职位标签
+  string jobName = 2;                     //职位名称
+  string jobReq = 3;                      //职位要求
+  string jobLocation = 4;                 //职位地址
+  string jobTags = 5;                    //职位标签
+  int32 jobNeed = 6;                     //招聘人数
+  JobMoney JobMoney = 7;
+  string industry = 8;                   //行业
+  int32 companyId = 9;                    //公司id(用户id)
+  string recruiterName = 10;               //招聘者
+  string recruiterPhone = 11;              //招聘者手机号
+  int32 recruiterId = 12;                 //招聘者id
+  int64 openTime = 13;                    //职位发布时间
   int64 updateTime = 14;                  //职位刷新时间
-  int32 salaryLow = 15;                   //薪酬-低
-  int32 salaryTop = 16;                   //薪酬-高
-  string companyName = 17;
+  string companyName = 15;
 }
 
 message JobSimplifyMessage {
   int32 jobId = 1;
   string jobName = 2;                     //职位名称
-  int32 salaryLow = 3;                   //薪酬-低
-  int32 salaryTop = 4;                   //薪酬-高
-  string jobLocation = 5;                 //职位地址
-  string companyName = 6;
-  string jobTags = 7;                    //职位标签
-  string salaryType = 8;
-  int32 companyId = 9;
-  int64 openTime = 10;                    //职位发布时间
+  string jobLocation = 3;                 //职位地址
+  string companyName = 4;
+  string jobTags = 5;                    //职位标签
+  int32 companyId = 6;
+  int64 openTime = 7;                    //职位发布时间
+  JobMoney jobMoney = 8;
 }
 
 //错误码
