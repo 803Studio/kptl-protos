@@ -4,18 +4,10 @@ option go_package = "./users";
 
 package users;
 
+import "global/headers.proto";
+
 service Auth {
   rpc Login(LoginRequest) returns (LoginResponse) {}
-}
-
-enum ResponseStatus {
-  OK = 0;
-  InternalErr = 1;
-}
-
-message ResponseHeader {
-  ResponseStatus status = 1;
-  string message = 2;
 }
 
 enum LoginMethod {
@@ -29,6 +21,6 @@ message LoginRequest {
 }
 
 message LoginResponse {
-  ResponseHeader header = 1;
+  global.ResponseHeader header = 1;
   uint32 uid = 2;
 }
