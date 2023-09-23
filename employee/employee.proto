@@ -4,7 +4,7 @@ option java_multiple_files = true;
 option java_package="com.kptl.proto.employee";
 
 package employee;
-import "global/Headers.proto";
+import "global/headers.proto";
 
 //请求
 message OperateRequest {

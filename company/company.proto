@@ -5,7 +5,7 @@ option java_package="com.kptl.proto.company";
 option go_package="./company";
 
 package company;
-import "global/Headers.proto";
+import "global/headers.proto";
 
 message RegisteredCompanyReq {
   Company company = 1;
