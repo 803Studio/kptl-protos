@@ -7,7 +7,7 @@ package users;
 import "global/headers.proto";
 
 service Auth {
-  rpc Login(LoginRequest) returns (LoginResponse) {}
+  rpc login(LoginRequest) returns (LoginResponse) {}
 }
 
 enum LoginMethod {
