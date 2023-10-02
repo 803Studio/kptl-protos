@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "./users";
+option go_package = "github.com/803Studio/kptl-grpc-go/proto/user;user";
 
 package users;
 

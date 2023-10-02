@@ -1,7 +1,8 @@
 syntax="proto3";
 
+option go_package = "github.com/803Studio/kptl-grpc-go/proto/comm;comm";
+
 package comm;
-option go_package = "./comm";
 
 enum ResponseStatus {
   OK = 0;

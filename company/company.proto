@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package="com.kptl.proto.company";
-option go_package="./company";
+option go_package = "github.com/803Studio/kptl-grpc-go/proto/company;company";
 
 package company;
 import "comm/headers.proto";
