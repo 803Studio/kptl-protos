@@ -4,7 +4,7 @@ option go_package = "./users";
 
 package users;
 
-import "global/headers.proto";
+import "comm/headers.proto";
 
 service Auth {
   rpc login(LoginRequest) returns (LoginResponse) {}
@@ -21,6 +21,6 @@ message LoginRequest {
 }
 
 message LoginResponse {
-  global.ResponseHeader header = 1;
+  comm.ResponseHeader header = 1;
   uint32 uid = 2;
 }

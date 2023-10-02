@@ -2,9 +2,10 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 option java_package="com.kptl.proto.employee";
+option go_package="./employee";
 
 package employee;
-import "global/headers.proto";
+import "comm/headers.proto";
 
 //请求
 message OperateRequest {
@@ -51,17 +52,17 @@ message SplitPage {
 }
 
 message FindEmployeeSimpleResponse {
-  global.ResponseHeader header = 1;
+  comm.ResponseHeader header = 1;
   repeated SimpleInformation employees = 2;
 }
 
 message FindEmployeeResponse {
-  global.ResponseHeader header = 1;
+  comm.ResponseHeader header = 1;
   SelfInformation selfInfo = 2;
 }
 
 message OperateResponse {
-  global.ResponseHeader header = 1;
+  comm.ResponseHeader header = 1;
   repeated int32 jobIds = 2;
 }
 
@@ -70,7 +71,7 @@ service Employee {
   rpc deliver (OperateRequest) returns (OperateResponse) {};                                  //投递简历
   rpc browses (OperateRequest) returns (OperateResponse) {};                                  //浏览记录
   rpc deliverRecords (FindRecordsReq) returns (OperateResponse) {};                           //投递记录
-  rpc completeSelfInformation (SelfInformation) returns (global.ResponseHeader) {};                  //完整个人信息
+  rpc completeSelfInformation (SelfInformation) returns (comm.ResponseHeader) {};                  //完整个人信息
   rpc findEmployeeInformation (FindEmployeeInfoReq) returns (FindEmployeeResponse) {};        //查看详细个人信息
   rpc findEmployeeSimpleInformation (SplitPage) returns (FindEmployeeSimpleResponse) {};      //查看简历列表
 }

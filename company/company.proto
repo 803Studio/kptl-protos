@@ -5,7 +5,7 @@ option java_package="com.kptl.proto.company";
 option go_package="./company";
 
 package company;
-import "global/headers.proto";
+import "comm/headers.proto";
 
 message RegisteredCompanyReq {
   Company company = 1;
@@ -28,7 +28,7 @@ message CommonCompanyReq {
 }
 
 message CommonResponse {
-  global.ResponseHeader header = 1;
+  comm.ResponseHeader header = 1;
 }
 
 //错误码
@@ -49,12 +49,12 @@ message FindAllCompaniesReq {
 }
 
 message CommonCompanyResponse {
-  global.ResponseHeader header = 1;
+  comm.ResponseHeader header = 1;
   repeated Company companies = 2;
 }
 
 message FindCompanyByIdResponse {
-  global.ResponseHeader header = 1;
+  comm.ResponseHeader header = 1;
   Company company = 2;
 }
 

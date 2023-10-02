@@ -1,7 +1,7 @@
 syntax="proto3";
 
-package global;
-option go_package = "global";
+package comm;
+option go_package = "./comm";
 
 enum ResponseStatus {
   OK = 0;
